@@ -32,7 +32,7 @@ public class Letters {
     Letter z = new Letter("z", 10, 1);
     Letter unknown = new Letter("unknown", 0, 2);
 
-    Map<String, Letter> lettersMap = new HashMap<String, Letter>();
+    public Map<String, Letter> lettersMap = new HashMap<String, Letter>();
 
 
     public Letters() {

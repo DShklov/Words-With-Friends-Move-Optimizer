@@ -1,55 +1,33 @@
 package Test;
 
 import Letters.Letter;
+import Letters.Letters;
 import Letters.MyLetters;
+import Grid.Grid;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MyLettersTest {
+public class GridTest {
     private MyLetters ml;
     private Letter l;
+    private Grid g;
+    private Letters ls;
 
 
     @BeforeEach
     public void runBefore() {
         ml = new MyLetters();
-        Letter l = new Letter("a", 12, 5);
+        l = new Letter("a", 12, 5);
+        g = new Grid();
+        ls = new Letters();
     }
 
     @Test
-    public void testkeyPressed() {
-        ml.keyPressed("abcdefg");
-        assertEquals("a", ml.L1);
-        assertEquals("b", ml.L2);
-        assertEquals("c", ml.L3);
-        assertEquals("d", ml.L4);
-        assertEquals("e", ml.L5);
-        assertEquals("f", ml.L6);
-        assertEquals("g", ml.L7);
-    }
-
-    @Test
-    public void testkeyPressedNotAllLetters() {
-        ml.keyPressed("abc");
-        assertEquals("a", ml.L1);
-        assertEquals("b", ml.L2);
-        assertEquals("c", ml.L3);
-        assertEquals(null, ml.L4);
-        assertEquals(null, ml.L5);
-        assertEquals(null, ml.L6);
-        assertEquals(null, ml.L7);
-
-    }
-
-    @Test
-    public void getAmountTest(){
-        assertEquals(5, Letter.getAmount(new Letter("a", 12, 5)));
-    }
-
-    @Test
-    public void getValueTest(){
-        assertEquals(12, Letter.getValue(new Letter("a", 12, 5)));
+    public void testAddKey() {
+        g.addToGrid(ls.lettersMap.get("a"), 0, 0);
+        assertEquals(ls.lettersMap.get("a"), g.MainGrid[0][0]);
     }
 }
+
