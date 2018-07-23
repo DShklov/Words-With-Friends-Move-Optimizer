@@ -8,22 +8,27 @@ public class MyLetters {
     public String L5;
     public String L6;
     public String L7;
+    Letters ls = new Letters();
+    Letter l = new Letter("",0,0);
 
 
-    public void MyLetters() {
-        L1 = this.L1;
-        L2 = this.L2;
-        L3 = this.L3;
-        L4 = this.L4;
-        L5 = this.L5;
-        L6 = this.L6;
-        L7 = this.L7;
+    public MyLetters() {
+
+        this.L1 = L1;
+        this.L2 = L2;
+        this.L3 = L3;
+        this.L4 = L4;
+        this.L5 = L5;
+        this.L6 = L6;
+        this.L7 = L7;
+        this.ls = ls;
+        this.l = l;
     }
 
     public void keyPressed(String keyCode) {
         int letterAmount = keyCode.length();
+        String curr = "";
         for (int i = 0; i < letterAmount; i++) {
-            String curr;
             switch(i) {
                 case 0:
                     curr = keyCode.substring(0,1);
@@ -53,6 +58,11 @@ public class MyLetters {
                     curr = keyCode.substring(6,7);
                     L7 = curr;
                     break;
+            }
+            if (this.ls.lettersMap.containsKey(curr)){
+              Letter currlet = this.ls.lettersMap.get(curr);
+              int newAmount = Letter.getAmount(currlet) - 1;
+              this.ls.lettersMap.put(curr, new Letter(curr, currlet.getValue(currlet), newAmount));
             }
         }
     }
