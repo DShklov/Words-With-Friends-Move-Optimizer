@@ -1,5 +1,8 @@
 package Letters;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyLetters {
     public String L1;
     public String L2;
@@ -10,6 +13,7 @@ public class MyLetters {
     public String L7;
     Letters ls = new Letters();
     Letter l = new Letter("",0,0);
+    public List mylet = new ArrayList<>();
 
 
     public MyLetters() {
@@ -23,6 +27,7 @@ public class MyLetters {
         this.L7 = L7;
         this.ls = ls;
         this.l = l;
+        this.mylet = mylet;
     }
 
     public void keyPressed(String keyCode) {
@@ -64,6 +69,7 @@ public class MyLetters {
               int newAmount = Letter.getAmount(currlet) - 1;
               this.ls.lettersMap.put(curr, new Letter(curr, currlet.getValue(currlet), newAmount));
             }
+            mylet.add(this.ls.lettersMap.get(curr));
         }
     }
 }
