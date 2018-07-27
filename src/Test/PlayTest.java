@@ -38,7 +38,6 @@ public class PlayTest {
         assertEquals("true", p.VisitedGrid[4][5]);
         assertEquals("true", p.VisitedGrid[5][4]);
         assertEquals(null, p.VisitedGrid[7][3]);
-
     }
 
 }
